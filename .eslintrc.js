@@ -1,6 +1,7 @@
 module.exports = {
   "env": {
     "browser": true,
+    "node": true,
     "es6": true,
     "jest/globals": true
   },
@@ -21,12 +22,11 @@ module.exports = {
   "rules": {
     "indent": [
       "error",
-        2
-      ],
-    "linebreak-style": [
-      "error",
-      "unix"
+      2
     ],
+    "linebreak-style":
+      ["error",
+        process.env.NODE_ENV === 'prod' ? "unix" : "windows"],
     "quotes": [
       "error",
       "single"
@@ -43,7 +43,6 @@ module.exports = {
     "arrow-spacing": [
       "error", { "before": true, "after": true }
     ],
-    "no-console": "error",
     "react/prop-types": 0
   }
 }
