@@ -31,6 +31,7 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
   main:
+    if: ${{ github.event_name == 'push' }}
     name: Deploy to Render
     runs-on: ubuntu-latest
     steps:
